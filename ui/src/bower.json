@@ -19,19 +19,5 @@
     "node_modules",
     "bower_components"
   ],
-  "overrides": {
-    "angular": {
-      "dependencies": {
-        "jquery": "*"
-      }
-    },
-    "angular-ui-router": {
-      "dependencies": {
-        "angular": "*"
-      }
-    }
-  },
-  "resolutions": {
-    "angular": "1.6.3"
-  }
+  
 }
