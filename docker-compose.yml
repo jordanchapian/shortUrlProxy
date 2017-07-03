@@ -1,0 +1,31 @@
+version: "2"
+services:
+    api:
+        build: ./api
+        depends_on:
+            - db
+        volumes:
+            - ./api:/src
+        ports:
+            - "80"
+        environment:
+            PHISH_TANK_API_KEY: 127433b680b0a5b4d0ff0d01254c905fae23c21eb427e1db89d5d36310b03df2
+            DEMO_APP_DOCKER_IP: "${DEMO_APP_DOCKER_IP}"
+    
+    ui:
+        build: ./ui
+        volumes:
+            - ./ui/build:/usr/share/nginx/html
+        ports:
+            - "80"
+    nginx:
+        build: ./nginx
+        depends_on:
+            - api
+            - ui
+        ports:
+            - "8088:8088"
+    db:
+        image: mongo:3.0
+        ports:
+            - "27017"

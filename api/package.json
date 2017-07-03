@@ -1,0 +1,14 @@
+{
+  "name": "ciscoShortUrlProxyAPI",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "mongoose": "^4.11.0",
+    "shortid": "^2.2.8"
+  }
+}

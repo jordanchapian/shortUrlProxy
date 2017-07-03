@@ -1,0 +1,37 @@
+{
+  "name": "cisco-short-url-proxy-uI",
+  "version": "0.0.0",
+  "authors": [
+    "Jordan Chapian <jordanchapian@gmail.com>"
+  ],
+  "description": "none",
+  "main": "./www/build/index.html",
+  "license": "",
+  "private": true,
+  "dependencies": {
+    "angular": "1.6.3",
+    "angular-ui-router": "1.0.0-rc.1 ",
+    "components-font-awesome": "4.7.0",
+    "underscore": "1.8.3"
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "overrides": {
+    "angular": {
+      "dependencies": {
+        "jquery": "*"
+      }
+    },
+    "angular-ui-router": {
+      "dependencies": {
+        "angular": "*"
+      }
+    }
+  },
+  "resolutions": {
+    "angular": "1.6.3"
+  }
+}

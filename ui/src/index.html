@@ -1,0 +1,111 @@
+<!DOCTYPE HTML>
+
+<html>
+
+  <head>
+    <!-- <link rel="stylesheet" type="text/css" href="css/dependencies.css"> -->
+    <link rel="stylesheet" type="text/css" href="css/application.css">
+  </head>
+
+  <body class='app' ng-app='app' ng-controller='app' ng-cloak>
+
+    <div class='headerBackdrop'></div>
+    <div class='headerBackdrop2'></div>
+    <img class='logo' src='images/ciscoWhite.png' />
+
+    <div class='stepContainer'>
+
+      <div class='step' ng-repeat='step in steps' ng-class='{"active":activeStep === step, "complete":step.index < activeStep.index}' ng-click='activateStep(step)'>
+        <div class='indicator'>
+        </div>
+        <div class='text'>
+          {{step.title}}
+        </div>
+      </div>
+
+    </div>
+
+    <div class='inputContainer'>
+      
+      <full-container-slider active-slide='{{activeStep.index}}'>
+        <slide>
+          <div class='slide-link-input'>
+
+            <h1 class='slide-title'>Choose The Target Location</h1>
+            <p class='side-desc'>
+              Provide a link below that you wish to shorten. The link must be fully qualified, including the protocol. Any URLs that are reported as malicious will be 
+              removed. 
+            </p>
+
+            <p class='text-danger' ng-if='data.continueAttempted === true && !targetValid()'>
+              The input is invalid. Please make sure to use a target of the form http://www.myURL.com and that you are using either the http or https protocols.
+            </p>
+
+            <div class='input'>
+              <form ng-submit='continue()'>
+                <input type='text' type='text' ng-model='data.target' placeholder='http://www.myURL.com'  />
+
+                <div class='btn' ng-click='continue()'>Continue</div>
+              </form>
+            </div>
+          </div>
+        </slide>
+        <slide>
+          <div class='slide-tracking-input'>
+
+            <h1 class='slide-title'>Would You Like To Enable Tracking?</h1>
+            <p class='side-desc'>
+              If you wish to enable tracking, we will provide you with a unique link that nobody else has.
+              You can then return to our service to check the number of proxy requests filled.
+            </p>
+
+            <div class='input'>
+              <form ng-submit='continue()'>
+                <div class='checkbox'>
+                  <input type="checkbox" ng-model='data.agreeToDataCollection'>
+                  <label for="music">Yes, I would like to enable tracking.</label>
+                </div>
+                <div class='btn' ng-click='continue()'>Continue</div>
+              </form>
+            </div>
+          </div>
+        </slide>
+        <slide>
+          <div class='slide-tracking-input'>
+
+            <div ng-if='result.error === true && result.loading === false'>
+              <h1 class='slide-title'>Uh Oh! There Was A Problem</h1>
+              <p class='side-desc'>
+                We are having problems with the provided input. If this problem persists, please contact us.
+              </p>
+              <div class='btn btn-default' ng-click='startOver()'>Start Over</div>
+            </div>
+
+            <div ng-if='result.error === false && result.loading === false'>
+              <h1 class='slide-title'>Success! Your Link Has Been Generated</h1>
+              <p class='side-desc'>
+                Thank you for using the Cisco URL Shortener. Your link has been generated and is functional immediately. You may copy the below link. You can test your link here: <a href='{{result.link}}' target='_blank'>{{result.link}}</a>
+              </p>
+
+              <div class='input'>
+                  <small>Shortened URL:</small>
+                  <input type='text' type='text' ng-model='result.link' />
+                  <div class='btn btn-default' ng-click='startOver()'>Start Over</div>
+              </div>
+            </div>
+
+            <div>
+            </div>
+          </div>
+        </slide>
+      </full-container-slider>
+    </div>
+
+  <!-- User Interface -->
+    <ui-view></ui-view>
+    <script type="application/javascript" src="js/dependencies.js"></script>
+    <script type="application/javascript" src="js/application.js"></script>
+  </body>
+
+</html>
+
