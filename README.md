@@ -6,11 +6,11 @@ Email: jordanchapian@gmail.com
 
 ### Required Software
 
-* Execution Environment: docker, docker-machine, docker-compose
+* Execution Environment: docker, docker-compose
 
 ### Getting Started
 * Start all of the build scripts (build mounted named volumes) with the root shell script `./build.sh`
-* Start the docker containers with the root shell script (this requires docker-machine to get the docker host ip) using `./start.sh`. The script will output the ip:port for the running nginx container.
+* Start the docker containers with the root shell script using `./start.sh`. The script will prompt for the ip of the docker host. The script will output the ip:port for the running nginx container.
 
 ## Design Notes
 
