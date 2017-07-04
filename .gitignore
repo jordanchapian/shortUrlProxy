@@ -41,3 +41,7 @@ Thumbs.db
 /ui/src/bower_components/
 /ui/node_modules
 /api/node_modules
+
+package-lock.json
+*.sublime-workspace
+npm-debug.log
