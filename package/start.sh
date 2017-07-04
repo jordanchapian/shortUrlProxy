@@ -16,12 +16,14 @@ bower install
 
 # build the app
 cd /app/stage/ui/
+rm -fr /app/ui/build/.
 npm install
 gulp build
 cp -r ./build/. /app/ui/build
 
 # Build the api dependencies
 mkdir /app/stage/api
+rm -fr /app/api/build/.
 cp -r /app/api/source/. /app/stage/api;
 cd /app/stage/api
 npm install

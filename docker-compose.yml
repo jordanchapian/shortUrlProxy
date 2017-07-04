@@ -1,18 +1,20 @@
 version: "2"
 
 services:
+  
   api:
       build: ./api
       depends_on:
           - db
       volumes:
           # Use the locally mounted volume for local development
-          - api-build-volume:/src
-          # - ./api:/src
+          # - api-build-volume:/src
+          - ./api:/src
       ports:
           - "80"
       environment:
           DEMO_APP_DOCKER_IP: "${DEMO_APP_DOCKER_IP}"
+
   ui:
       build: ./ui
       volumes:
@@ -36,6 +38,8 @@ services:
           - "8088:8088"
   db:
       image: mongo:3.0
+      command: mongod --smallfiles
+      restart: always
       ports:
           - "27017"
   package:

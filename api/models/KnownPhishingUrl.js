@@ -3,8 +3,7 @@ const Schema = mongoose.Schema;
 
 const KnownPhishingUrl = new Schema({
 	url:  {
-		type: String,
-		unique: true
+		type: String
 	}
   	//info for tracking (date, requester... etc)
 });

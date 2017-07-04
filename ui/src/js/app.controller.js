@@ -6,6 +6,7 @@ angular.module('app')
 'linkSvc',
 
 function($scope, $timeout, steps, linkSvc){
+
 	var URLregex = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,4}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/
 	$scope.activeStep = steps[0];
 	$scope.steps = steps;

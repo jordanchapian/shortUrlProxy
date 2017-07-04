@@ -18,8 +18,18 @@ describe("URL Hash Creation", function() {
 
     });
 
-    it("should reject attempts to create a hash for a malformed url", function(){
-    	// TODO
+    it("should reject attempts to create a hash for a malformed url", function(done){
+    	//permutations should be covered by UT
+        request({
+            uri: util.buildAppUrl('/api/v1/links'),
+            method: 'POST',
+            json: {
+                "targetUrl":"www.google.com" //missing protocol
+            }
+        }, function(err, result, body){
+            expect(result.statusCode).toBe(422);
+            done();
+        });
     });
 
     it("should return a hash for proper non-blacklisted urls", function(done){
@@ -36,6 +46,10 @@ describe("URL Hash Creation", function() {
 		});
 
     });
+
+    // it("should return a short link with the configured host ip", function(done){
+	//
+	// });
 
     it("should return the same hash for subsequent attempts to shorten the same url", function(done){
     	var requestConfig = {
