@@ -14,5 +14,5 @@ angular.module('app')
 		title:"Finish",
 		index:2,
 		contentTemplate:""
-	},
+	}
 ]);

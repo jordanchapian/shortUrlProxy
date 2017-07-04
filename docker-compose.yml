@@ -1,26 +1,32 @@
 version: "2"
 
 services:
-  
-  api:
+
+  api: &api
       build: ./api
       depends_on:
           - db
       volumes:
           # Use the locally mounted volume for local development
-          # - api-build-volume:/src
-          - ./api:/src
+           - api-build-volume:/src
+#          - ./api:/src
       ports:
           - "80"
+      entrypoint: /usr/local/bin/npm
+      command: start
       environment:
           DEMO_APP_DOCKER_IP: "${DEMO_APP_DOCKER_IP}"
+
+  api-ut:
+    <<: *api
+    command: test
 
   ui:
       build: ./ui
       volumes:
         # Use the locally mounted volume for local development
         - ui-build-volume:/usr/share/nginx/html
-        #- ./ui/build:/usr/share/nginx/html
+#        - ./ui/build:/usr/share/nginx/html
       ports:
           - "80"
   

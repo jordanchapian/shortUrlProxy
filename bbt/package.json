@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "BBTs for the link shortener rest api",
   "scripts": {
-    "test": "npm install; jasmine-node ./test"
+    "test": "npm install; echo 'sleeping for 10s'; sleep 10; jasmine-node --verbose ./test"
   },
   "dependencies": {
     "request":"2.81.0"

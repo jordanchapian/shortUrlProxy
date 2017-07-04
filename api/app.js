@@ -33,7 +33,7 @@ mongoose.connection.once('connected', function () {
 });
 
 mongoose.connection.on('error',function (err) {
-  console.log('mongoosed connection error: ' + err);
+  console.log('mongoose connection error: ' + err);
 });
 
 mongoose.connection.on('disconnected', function () {

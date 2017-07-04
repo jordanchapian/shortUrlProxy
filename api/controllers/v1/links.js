@@ -3,7 +3,7 @@ var router = express.Router();
 
 const LinkMap = require('../../models/LinkMap.js');
 const KnownPhishingUrl = require('../../models/KnownPhishingUrl.js');
-
+const urlHelper = require('../../helpers/url.js');
 
 router.get('/:linkId/redirect', function (req, res) {
     LinkMap.findOne({ _id: req.params.linkId }, function(err, map) {
@@ -19,6 +19,11 @@ router.post('/', function (req, res) {
 
     //require this param
     if(req.body.targetUrl === undefined){
+        return res.status(422).send();
+    }
+
+    //ensure that the target is valid
+    if(urlHelper.urlIsValid(req.body.targetUrl) === false){
         return res.status(422).send();
     }
 

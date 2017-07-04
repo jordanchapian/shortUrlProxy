@@ -1,3 +1,3 @@
 FROM node:8.1
 WORKDIR /src
-CMD ["npm", "start"]
+RUN npm install -g jasmine-node
