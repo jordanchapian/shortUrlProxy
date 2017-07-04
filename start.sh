@@ -1,10 +1,10 @@
 #!/bin/sh
 
-$(
-	export DEMO_APP_DOCKER_IP="$(docker-machine ip default)"
-	docker-compose up -d nginx
-);
+echo "Please enter the ip address of the docker host: "
+read docker_host
+export DEMO_APP_DOCKER_IP="$docker_host"
+docker-compose up -d nginx
 
 echo "\n\n--------";
-echo "Server will be available at $(docker-machine ip default):8088";
+echo "Server will be available at $docker_host:8088";
 echo "--------\n\n";
