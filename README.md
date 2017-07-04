@@ -7,10 +7,9 @@ Email: jordanchapian@gmail.com
 ### Required Software
 
 * Execution Environment: docker, docker-machine, docker-compose
-* Package managers: npm, bower
 
 ### Getting Started
-* Start all of the build scripts (build source & images) with the root shell script `./build.sh`
+* Start all of the build scripts (build mounted named volumes) with the root shell script `./build.sh`
 * Start the docker containers with the root shell script (this requires docker-machine to get the docker host ip) using `./start.sh`. The script will output the ip:port for the running nginx container.
 
 ## Design Notes
@@ -34,6 +33,10 @@ Email: jordanchapian@gmail.com
 * The reverse proxy handles the routing logic between the different services, nothing more. 
 * Security headers are not set (many csdl items can be fixed by setting iframe content protection and csp.)
 
+### BBT
+* I wrote a few regression tests that are run in the bbt target. These can be run by starting up the bbt container or by using the provided shell script `./bbt`.
+
 ## General Notes
 * It is a bit strange that this repository does not produce an artifact - I would much rather 
 separate the three microservices into their own projects and push images up to a registry on release.
+

@@ -1,5 +1,5 @@
 {
-  "name": "cisco-short-url-proxy-uI",
+  "name": "cisco-short-url-proxy-ui",
   "version": "0.0.0",
   "authors": [
     "Jordan Chapian <jordanchapian@gmail.com>"
@@ -21,4 +21,17 @@
     "bower_components"
   ],
   
+  "overrides": {     
+    "angular": {    
+      "dependencies": {   
+        "jquery": "*"   
+      }   
+    },    
+    "angular-ui-router": {    
+      "dependencies": {   
+        "angular": "*"    
+      }   
+    }   
+  }
+
 }

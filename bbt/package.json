@@ -1,0 +1,11 @@
+{
+  "name": "shortUrlProxy-BBTs",
+  "version": "1.0.0",
+  "description": "BBTs for the link shortener rest api",
+  "scripts": {
+    "test": "npm install; jasmine-node ./test"
+  },
+  "dependencies": {
+    "request":"2.81.0"
+  }
+}
