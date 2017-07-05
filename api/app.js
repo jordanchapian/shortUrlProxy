@@ -11,12 +11,12 @@ mongoose.Promise = global.Promise;
 
 // Create the database connection
 //TODO: would be better to poll here
-console.log('Waiting 5s for db to accept connections')
+console.log('Waiting 5 seconds for db to accept connections.')
 setTimeout(function(){
     mongoose.connect('mongodb://db:27017/tmp', {
         useMongoClient: true
     });
-}, 3000);
+}, 5000);
 
 
 mongoose.connection.once('connected', function () {
