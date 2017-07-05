@@ -4,6 +4,10 @@ Email: jordanchapian@gmail.com
 
 ## Setup
 
+Have a look at the overview video here:
+
+https://drive.google.com/open?id=0B2d4z5vYGWBXbmRRSDFhWUNJV1E
+
 ### Required Software
 
 * Execution Environment: docker, docker-compose
