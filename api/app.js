@@ -20,7 +20,8 @@ setTimeout(function(){
 
 
 mongoose.connection.once('connected', function () {
-    console.log('mongoose connected');
+    console.log('mongoose is connected');
+    console.log('Starting data load');
     require('./services/phishTank/phishTank.js').init()
 	.then(function(e){
 		return app.listen(8080, function () {
