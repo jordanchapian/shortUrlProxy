@@ -2,9 +2,7 @@ const KnownPhishingUrl = require('../../models/KnownPhishingUrl.js');
 
 module.exports = {
 	init:function(){
-		console.log('init');
 		return new Promise(function(resolve, reject){
-            console.log('init2');
 			KnownPhishingUrl.remove({}, function(err, result){
 					
 				if(err){

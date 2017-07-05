@@ -24,8 +24,8 @@ cp -r ./build/. /app/ui/build
 # Build the api dependencies
 mkdir /app/stage/api
 rm -fr /app/api/build/.
-cp -r /app/api/source/. /app/stage/api;
+cp /app/api/source/package.json /app/stage/api;
 cd /app/stage/api
 npm install
 npm install body-parser #TODO: Weird bug, installing body-parser (this is temp)
-cp -r /app/stage/api/. /app/api/build;
+cp -r ./node_modules/. /app/api/build;

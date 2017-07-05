@@ -8,8 +8,8 @@ services:
           - db
       volumes:
           # Use the locally mounted volume for local development
-           - api-build-volume:/src
-#          - ./api:/src
+        - api-build-volume:/src/node_modules
+        - ./api:/src
       ports:
           - "80"
       entrypoint: /usr/local/bin/npm
